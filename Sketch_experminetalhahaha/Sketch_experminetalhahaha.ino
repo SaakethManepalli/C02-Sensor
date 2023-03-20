@@ -85,8 +85,8 @@ void loop() {
   Serial.println("------------------------------------");
 
   DateTime now = rtc.now();
-  sprintf(t, "%02d:%02d:%02d", now.hour(), now.minute(), now.second() );  
-  sprintf(d, "%02d/%02d/%02d", now.day(), now.month(), now.year());
+  sprintf(t, "%02d:%02d:%02d", now.hour(), now.minute(), now.second(), Serial.print(",") );  
+  sprintf(d, "%02d/%02d/%02d", now.month(), now.day(), now.year());
 
   Serial.print(F("Date/Time: "));
   Serial.print(d);
@@ -113,6 +113,8 @@ void loop() {
    myFile.println("------------------------------------------------");*/
     
     myFile.print(t);
+    myFile.print(", ");
+    myFile.print(d);
     myFile.print(",");
     myFile.print(temperature);
     myFile.print(",");
